@@ -1,0 +1,2446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노루 학원 · Noru Academy — Where Languages Meet Cultures</title>
+  <meta name="description"
+    content="A premium online academy bridging Spanish and Korean — quality-first, culture-driven, built for serious learners.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- AOS.js -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ===== THEME CUSTOM PROPERTIES ===== */
+    :root {
+      --color-primary: #3B4FBF;
+      --color-accent: #F2694A;
+      --color-secondary: #2ECC8F;
+      --color-bg: #F8F7F4;
+      --color-text: #1E1E2E;
+      --color-surface: #FFFFFF;
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 6rem;
+      --space-5xl: 8rem;
+
+      /* Typography scale */
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+      --text-5xl: 3rem;
+      --text-6xl: 3.75rem;
+
+      /* Misc */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+      --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
+      --nav-height: 72px;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+    }
+
+    body {
+      font-family: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: var(--text-base);
+      transition: background-color 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Fraunces', 'Noto Sans KR', serif;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--color-accent);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+
+    .section-padding {
+      padding: var(--space-5xl) 0;
+    }
+
+    .section-title {
+      font-size: var(--text-4xl);
+      text-align: center;
+      margin-bottom: var(--space-md);
+      color: var(--color-text);
+    }
+
+    .section-subtitle {
+      font-size: var(--text-lg);
+      text-align: center;
+      color: var(--color-text);
+      opacity: 0.7;
+      max-width: 640px;
+      margin: 0 auto var(--space-3xl);
+      font-weight: 400;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-base);
+      font-weight: 600;
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #fff;
+      border-color: var(--color-accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding: 0 var(--space-xl);
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    .navbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      text-decoration: none;
+      color: var(--color-text);
+      flex-shrink: 0;
+    }
+
+    .nav-brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .nav-brand-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: var(--text-base);
+      color: var(--color-primary);
+    }
+
+    .nav-brand-sub {
+      font-size: var(--text-xs);
+      color: var(--color-text);
+      opacity: 0.6;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text);
+      opacity: 0.75;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--color-primary);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-shrink: 0;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex;
+      background: var(--color-surface);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      padding: 0.35rem 0.75rem;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--color-text);
+      opacity: 0.6;
+      transition: all 0.25s;
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    .lang-btn.active {
+      background: var(--color-primary);
+      color: #fff;
+      opacity: 1;
+    }
+
+    .nav-cta {
+      font-size: var(--text-sm) !important;
+      padding: 0.5rem 1.25rem !important;
+    }
+
+    /* Mobile menu */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--color-surface);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: var(--space-sm) 0;
+      font-size: var(--text-lg);
+      color: var(--color-text);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: var(--nav-height);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, var(--color-primary), transparent 50%),
+        radial-gradient(ellipse 60% 50% at 80% 70%, var(--color-accent), transparent 50%),
+        radial-gradient(ellipse 50% 40% at 50% 50%, var(--color-secondary), transparent 60%);
+      opacity: 0.08;
+      animation: meshShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes meshShift {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        transform: scale(1.1) rotate(2deg);
+      }
+
+      100% {
+        transform: scale(1) rotate(-1deg);
+      }
+    }
+
+    .hero-dots {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle, var(--color-primary) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.04;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      padding: var(--space-2xl);
+    }
+
+    .hero-mascot {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto var(--space-xl);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .hero h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-md);
+      color: var(--color-text);
+    }
+
+    .hero-tagline-wrap {
+      height: 2rem;
+      overflow: hidden;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-tagline {
+      font-size: var(--text-xl);
+      font-weight: 500;
+      color: var(--color-primary);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+
+    .hero-tagline.active {
+      opacity: 1;
+    }
+
+    .hero-sub {
+      font-size: var(--text-lg);
+      opacity: 0.72;
+      max-width: 560px;
+      margin: 0 auto var(--space-2xl);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      animation: bounce 2s infinite;
+      color: var(--color-text);
+      opacity: 0.35;
+      font-size: var(--text-2xl);
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    /* ===== WHY NORU ===== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-xl);
+      align-items: stretch;
+    }
+
+    .why-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .why-card-title {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .why-item {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+      align-items: flex-start;
+    }
+
+    .why-item i {
+      color: var(--color-accent);
+      font-size: var(--text-lg);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .why-item p {
+      font-size: var(--text-sm);
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    .why-bridge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: var(--space-xl) 0;
+    }
+
+    .bridge-line {
+      width: 3px;
+      flex: 1;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-primary), var(--color-secondary));
+      border-radius: 2px;
+    }
+
+    .bridge-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: var(--text-xl);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ===== WHAT IS NORU ===== */
+    .what-section {
+      background: var(--color-surface);
+    }
+
+    .what-intro {
+      max-width: 680px;
+      margin: 0 auto var(--space-3xl);
+      text-align: center;
+      font-size: var(--text-lg);
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .pillar-card {
+      text-align: center;
+      padding: var(--space-2xl);
+      border-radius: var(--radius-lg);
+      background: var(--color-bg);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pillar-icon {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-lg);
+    }
+
+    .pillar-card h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-md);
+      color: var(--color-primary);
+    }
+
+    .pillar-card p {
+      font-size: var(--text-sm);
+      opacity: 0.75;
+      line-height: 1.7;
+    }
+
+    /* ===== PROGRAMS ===== */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .program-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .program-card.featured {
+      border: 2px solid var(--color-primary);
+      box-shadow: 0 0 0 4px rgba(59, 79, 191, 0.08), var(--shadow-md);
+      transform: scale(1.02);
+    }
+
+    .program-card.featured:hover {
+      transform: scale(1.02) translateY(-6px);
+      box-shadow: 0 0 0 4px rgba(59, 79, 191, 0.12), var(--shadow-xl);
+    }
+
+    .program-card.muted {
+      opacity: 0.65;
+    }
+
+    .program-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-md);
+    }
+
+    .program-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-sm);
+      color: var(--color-text);
+    }
+
+    .program-card p {
+      font-size: var(--text-sm);
+      opacity: 0.72;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .program-badge {
+      display: inline-block;
+      margin-top: var(--space-md);
+      padding: 0.25rem 0.75rem;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .program-badge.coming-soon {
+      background: var(--color-text);
+      opacity: 0.4;
+    }
+
+    .program-badge.featured-badge {
+      background: var(--color-accent);
+    }
+
+    /* ===== WHO IS NORU FOR ===== */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .audience-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      display: flex;
+      gap: var(--space-lg);
+      align-items: flex-start;
+    }
+
+    .audience-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .audience-emoji {
+      font-size: var(--text-3xl);
+      flex-shrink: 0;
+    }
+
+    .audience-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-sm);
+    }
+
+    .audience-card p {
+      font-size: var(--text-sm);
+      opacity: 0.72;
+      line-height: 1.7;
+    }
+
+    /* ===== PLATFORM ===== */
+    .platform-section {
+      background: var(--color-surface);
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .feature-list {
+      list-style: none;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+      align-items: flex-start;
+    }
+
+    .feature-check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-sm);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-item p {
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: var(--text-base);
+      margin-bottom: 2px;
+    }
+
+    /* Dashboard mockup */
+    .dashboard-mockup {
+      background: var(--color-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .mockup-chrome {
+      background: var(--color-text);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mockup-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .mockup-dot:nth-child(1) {
+      background: #FF5F57;
+    }
+
+    .mockup-dot:nth-child(2) {
+      background: #FFBD2E;
+    }
+
+    .mockup-dot:nth-child(3) {
+      background: #28C840;
+    }
+
+    .mockup-url {
+      flex: 1;
+      margin-left: 8px;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-xs);
+      color: rgba(255, 255, 255, 0.6);
+      font-family: 'Inter', monospace;
+    }
+
+    .mockup-body {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      min-height: 280px;
+    }
+
+    .mockup-sidebar {
+      background: var(--color-primary);
+      color: #fff;
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .mockup-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xl);
+    }
+
+    .mockup-sidebar-name {
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+
+    .mockup-sidebar-level {
+      font-size: var(--text-xs);
+      opacity: 0.7;
+    }
+
+    .mockup-sidebar-nav {
+      margin-top: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .mockup-sidebar-nav span {
+      font-size: var(--text-xs);
+      opacity: 0.7;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      cursor: default;
+    }
+
+    .mockup-sidebar-nav span:first-child {
+      background: rgba(255, 255, 255, 0.15);
+      opacity: 1;
+    }
+
+    .mockup-main {
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .mockup-card {
+      background: var(--color-surface);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+    }
+
+    .mockup-card-title {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text);
+      opacity: 0.5;
+      margin-bottom: var(--space-sm);
+    }
+
+    .mockup-schedule {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      font-size: var(--text-sm);
+    }
+
+    .mockup-schedule-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+    }
+
+    .mockup-progress-bar {
+      height: 8px;
+      background: var(--color-bg);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: var(--space-sm);
+    }
+
+    .mockup-progress-fill {
+      height: 100%;
+      width: 68%;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      border-radius: 4px;
+    }
+
+    .mockup-join-btn {
+      display: inline-block;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      margin-top: var(--space-sm);
+      cursor: default;
+    }
+
+    /* ===== ROADMAP ===== */
+    .roadmap-timeline {
+      display: flex;
+      gap: 0;
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .roadmap-phase {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      padding: 0 var(--space-md);
+    }
+
+    .roadmap-node {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin: 0 auto var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-lg);
+      position: relative;
+      z-index: 2;
+    }
+
+    .roadmap-phase:nth-child(1) .roadmap-node {
+      background: var(--color-secondary);
+      box-shadow: 0 0 0 6px rgba(46, 204, 143, 0.2);
+    }
+
+    .roadmap-phase:nth-child(2) .roadmap-node {
+      background: var(--color-primary);
+      box-shadow: 0 0 0 6px rgba(59, 79, 191, 0.15);
+    }
+
+    .roadmap-phase:nth-child(3) .roadmap-node {
+      background: var(--color-accent);
+      box-shadow: 0 0 0 6px rgba(242, 105, 74, 0.15);
+      opacity: 0.7;
+    }
+
+    .roadmap-connector {
+      position: absolute;
+      top: 20px;
+      left: calc(50% + 24px);
+      right: calc(-50% + 24px);
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+      z-index: 1;
+    }
+
+    .roadmap-phase:nth-child(2) .roadmap-connector {
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .roadmap-phase:last-child .roadmap-connector {
+      display: none;
+    }
+
+    .roadmap-label {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-xs);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .roadmap-dates {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    .roadmap-desc {
+      font-size: var(--text-sm);
+      opacity: 0.72;
+      line-height: 1.7;
+    }
+
+    /* ===== FOUNDER ===== */
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .founder-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: var(--color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .founder-photo::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-secondary));
+      z-index: -1;
+    }
+
+    .founder-photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      opacity: 0.5;
+      font-weight: 500;
+      text-align: center;
+      padding: var(--space-md);
+    }
+
+    .founder-name {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-md);
+    }
+
+    .founder-bio {
+      font-size: var(--text-sm);
+      line-height: 1.85;
+      opacity: 0.8;
+      margin-bottom: var(--space-xl);
+    }
+
+    .founder-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .founder-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 0.35rem 0.85rem;
+      background: var(--color-bg);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 500;
+    }
+
+    /* ===== WAITLIST ===== */
+    .waitlist-section {
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 60%, var(--color-accent)));
+      color: #fff;
+    }
+
+    .waitlist-section .section-title {
+      color: #fff;
+    }
+
+    .waitlist-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .waitlist-form {
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .waitlist-form input,
+    .waitlist-form select {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: var(--text-base);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      backdrop-filter: blur(8px);
+    }
+
+    .waitlist-form input::placeholder {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .waitlist-form select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .waitlist-form select option {
+      color: var(--color-text);
+      background: var(--color-surface);
+    }
+
+    .waitlist-form input:focus,
+    .waitlist-form select:focus {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .waitlist-submit {
+      background: #fff;
+      color: var(--color-primary);
+      font-weight: 700;
+      padding: 0.85rem;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+      cursor: pointer;
+      transition: all 0.25s;
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    .waitlist-submit:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .waitlist-note {
+      text-align: center;
+      font-size: var(--text-xs);
+      opacity: 0.65;
+      margin-top: var(--space-sm);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--color-text);
+      color: rgba(255, 255, 255, 0.8);
+      padding: var(--space-3xl) 0 var(--space-lg);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .footer-brand svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: var(--text-lg);
+      color: #fff;
+    }
+
+    .footer-tagline {
+      font-size: var(--text-xs);
+      opacity: 0.5;
+      margin-top: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      list-style: none;
+      justify-self: center;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: var(--text-sm);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-global {
+      text-align: right;
+      font-size: var(--text-sm);
+      opacity: 0.6;
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: var(--space-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--text-xs);
+      opacity: 0.45;
+    }
+
+    .footer-bottom .lang-toggle {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom .lang-btn {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-bottom .lang-btn.active {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    /* ===== THEME SWITCHER ===== */
+    .theme-switcher {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1001;
+    }
+
+    .theme-pill {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.5rem 1rem;
+      background: var(--color-surface);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text);
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .theme-pill:hover {
+      box-shadow: var(--shadow-xl);
+    }
+
+    .theme-popover {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      right: 0;
+      background: var(--color-surface);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-xl);
+      min-width: 180px;
+      display: none;
+    }
+
+    .theme-popover.open {
+      display: block;
+    }
+
+    .theme-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.5rem 0.6rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .theme-option:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .theme-option.active {
+      font-weight: 700;
+    }
+
+    .theme-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      flex-shrink: 0;
+    }
+
+    .theme-option.active .theme-dot {
+      border-color: var(--color-text);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none !important;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: var(--text-4xl);
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-bridge {
+        flex-direction: row;
+        padding: var(--space-md) 0;
+      }
+
+      .bridge-line {
+        width: auto;
+        height: 3px;
+        flex: 1;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap-timeline {
+        flex-direction: column;
+        gap: var(--space-xl);
+      }
+
+      .roadmap-connector {
+        display: none !important;
+      }
+
+      .founder-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .founder-badges {
+        justify-content: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-global {
+        text-align: center;
+      }
+
+      .footer-links {
+        align-items: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .mockup-body {
+        grid-template-columns: 1fr;
+      }
+
+      .mockup-sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: var(--text-3xl);
+      }
+
+      .hero-mascot {
+        width: 140px;
+        height: 140px;
+      }
+
+      .section-title {
+        font-size: var(--text-3xl);
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 0 var(--space-md);
+      }
+
+      .section-padding {
+        padding: var(--space-3xl) 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="nav-brand">
+        <img src="mascot.png" alt="Noru mascot">
+        <div class="nav-brand-text">
+          <span class="nav-brand-name">Noru Academy</span>
+          <span class="nav-brand-sub">노루 학원</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#programs" data-i18n="nav.programs">Programs</a></li>
+        <li><a href="#platform" data-i18n="nav.platform">Platform</a></li>
+        <li><a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a></li>
+        <li><a href="#founder" data-i18n="nav.founder">Founder</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="lang-toggle" id="langToggle">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ko">한국어</button>
+        </div>
+        <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">Contact Me</a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#programs" data-i18n="nav.programs">Programs</a>
+    <a href="#platform" data-i18n="nav.platform">Platform</a>
+    <a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
+    <a href="#founder" data-i18n="nav.founder">Founder</a>
+    <a href="#contact" data-i18n="nav.cta">Contact Me</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-dots"></div>
+    <div class="hero-content">
+      <div class="hero-mascot">
+        <img src="mascot.png" alt="Noru deer mascot" style="width:100%;height:100%;object-fit:contain;">
+      </div>
+      <h1>노루 학원 · Noru Academy</h1>
+      <div class="hero-tagline-wrap" style="position:relative;">
+        <span class="hero-tagline active" id="tagline-en">Where Languages Meet Cultures</span>
+        <span class="hero-tagline" id="tagline-es">Donde los idiomas se encuentran con la cultura</span>
+        <span class="hero-tagline" id="tagline-ko">언어가 문화를 만나는 곳</span>
+      </div>
+      <p class="hero-sub" data-i18n="hero.sub">A premium online academy bridging Spanish and Korean — quality-first,
+        culture-driven, built for serious learners.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Get in Touch</a>
+        <a href="#programs" class="btn btn-outline" data-i18n="hero.cta2">Explore Programs</a>
+      </div>
+    </div>
+    <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+  </section>
+
+  <!-- ===== WHY NORU ===== -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="why.title">Why Noru?</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="why.subtitle">The gap between
+        Spanish and Korean learning is real — and no one is bridging it properly.</p>
+      <div class="why-grid">
+        <div class="why-card" data-aos="fade-right">
+          <h3 class="why-card-title">🇪🇸 <span data-i18n="why.es.title">Spanish Learners</span></h3>
+          <div class="why-item">
+            <i class="fas fa-times-circle"></i>
+            <p data-i18n="why.es.p1">Generic platforms ignore the Spanish-Korean niche</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-times-circle"></i>
+            <p data-i18n="why.es.p2">No cultural context, just grammar</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-times-circle"></i>
+            <p data-i18n="why.es.p3">Scattered resources, no structured path</p>
+          </div>
+        </div>
+        <div class="why-bridge" data-aos="fade-up" data-aos-delay="200">
+          <div class="bridge-line"></div>
+          <div class="bridge-icon"><i class="fas fa-arrows-left-right"></i></div>
+          <div class="bridge-line"></div>
+        </div>
+        <div class="why-card" data-aos="fade-left">
+          <h3 class="why-card-title">🇰🇷 <span data-i18n="why.ko.title">Korean Learners</span></h3>
+          <div class="why-item">
+            <i class="fas fa-times-circle"></i>
+            <p data-i18n="why.ko.p1">과외 culture demands quality and personalization</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-times-circle"></i>
+            <p data-i18n="why.ko.p2">No platform specialized in Korean↔Spanish</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-times-circle"></i>
+            <p data-i18n="why.ko.p3">Online classes feel disconnected and informal</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT IS NORU ===== -->
+  <section class="section-padding what-section" id="what">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="what.title">What is Noru Academy?</h2>
+      <p class="what-intro" data-aos="fade-up" data-aos-delay="100" data-i18n="what.intro">A premium private virtual
+        academy — not a public platform like Duolingo. Modeled after the Korean 과외 (tutoring) culture, scaled online
+        with verified native teachers, professional structure, and real cultural immersion.</p>
+      <div class="pillars-grid">
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="pillar-icon">🏆</div>
+          <h3 data-i18n="what.p1.title">Quality</h3>
+          <p data-i18n="what.p1.desc">Native verified teachers and a rigorous, structured curriculum designed for
+            measurable progress.</p>
+        </div>
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="pillar-icon">🌏</div>
+          <h3 data-i18n="what.p2.title">Culture</h3>
+          <p data-i18n="what.p2.desc">Language learning rooted in real cultural immersion — not just textbooks, but
+            lived experience.</p>
+        </div>
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="pillar-icon">🤝</div>
+          <h3 data-i18n="what.p3.title">Community</h3>
+          <p data-i18n="what.p3.desc">Live exchange between Spanish and Korean native speakers, building bridges that go
+            beyond the classroom.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAMS ===== -->
+  <section class="section-padding" id="programs">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="programs.title">Our Programs</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="programs.subtitle">Structured paths
+        for every learning goal, from absolute beginner to exam mastery.</p>
+      <div class="programs-grid">
+        <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="program-icon">📝</div>
+          <h3 data-i18n="prog.dele.title">DELE Preparation</h3>
+          <p data-i18n="prog.dele.desc">Official exam prep for all levels A1–C2. Reading, writing, listening, speaking.
+            Individual or group sessions.</p>
+          <span class="program-badge">A1 → C2</span>
+        </div>
+        <div class="program-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="program-icon">🌱</div>
+          <h3 data-i18n="prog.zero.title">Spanish from Zero</h3>
+          <p data-i18n="prog.zero.desc">Structured beginner course for Korean native speakers. Start from scratch, reach
+            conversational level.</p>
+          <span class="program-badge" data-i18n="prog.zero.badge">Beginner</span>
+        </div>
+        <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="program-icon">✈️</div>
+          <h3 data-i18n="prog.travel.title">Spanish for Travelers</h3>
+          <p data-i18n="prog.travel.desc">Practical mini-course for students going to Spain or Latin America on exchange
+            or short stays.</p>
+          <span class="program-badge" data-i18n="prog.travel.badge">Short Course</span>
+        </div>
+        <div class="program-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="program-icon">📖</div>
+          <h3 data-i18n="prog.suneung.title">수능 Spanish Prep</h3>
+          <p data-i18n="prog.suneung.desc">Specialized preparation for Korean high school students taking the CSAT (수능)
+            Spanish exam.</p>
+          <span class="program-badge">고등학생</span>
+        </div>
+        <div class="program-card featured" data-aos="fade-up" data-aos-delay="300">
+          <div class="program-icon">🔄</div>
+          <h3 data-i18n="prog.exchange.title">Supervised Language Exchange</h3>
+          <p data-i18n="prog.exchange.desc">Pairs Spanish and Korean native speakers for guided conversation practice,
+            supervised by a teacher.</p>
+          <span class="program-badge featured-badge">⭐ Featured</span>
+        </div>
+        <div class="program-card muted" data-aos="fade-up" data-aos-delay="350">
+          <div class="program-icon">🇰🇷</div>
+          <h3 data-i18n="prog.korean.title">Korean for Spanish Speakers</h3>
+          <p data-i18n="prog.korean.desc">Coming soon. The reverse path — from Spanish to Korean, taught by native
+            Korean teachers.</p>
+          <span class="program-badge coming-soon" data-i18n="prog.korean.badge">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO IS NORU FOR ===== -->
+  <section class="section-padding what-section" id="audience">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="audience.title">Who is Noru Academy for?</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="audience.subtitle">Whether you're
+        in Seoul, Madrid, or anywhere in between — if you're serious about learning, Noru is for you.</p>
+      <div class="audience-grid">
+        <div class="audience-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="audience-emoji">🇰🇷</div>
+          <div>
+            <h3 data-i18n="aud.1.title">Korean Students in Korea</h3>
+            <p data-i18n="aud.1.desc">Seeking quality 과외-style Spanish instruction from native speakers</p>
+          </div>
+        </div>
+        <div class="audience-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="audience-emoji">🌍</div>
+          <div>
+            <h3 data-i18n="aud.2.title">Koreans Living Abroad</h3>
+            <p data-i18n="aud.2.desc">Living in Spain, Mexico or Latin America and wanting to improve their Spanish
+              professionally</p>
+          </div>
+        </div>
+        <div class="audience-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="audience-emoji">📚</div>
+          <div>
+            <h3 data-i18n="aud.3.title">Korean High Schoolers</h3>
+            <p data-i18n="aud.3.desc">Preparing for 수능 Spanish with expert guidance</p>
+          </div>
+        </div>
+        <div class="audience-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="audience-emoji">🇪🇸</div>
+          <div>
+            <h3 data-i18n="aud.4.title">Spanish Speakers Curious About Korean</h3>
+            <p data-i18n="aud.4.desc">Wanting to explore Korean language and culture (Phase 2)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLATFORM ===== -->
+  <section class="section-padding platform-section" id="platform">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="platform.title">A Professional Virtual Classroom</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="platform.subtitle">Everything in
+        one place — no more scattered Google Meet links and WhatsApp messages.</p>
+      <div class="platform-grid">
+        <div data-aos="fade-right">
+          <ul class="feature-list">
+            <li class="feature-item">
+              <div class="feature-check"><i class="fas fa-check" style="font-size:12px"></i></div>
+              <div>
+                <strong data-i18n="feat.1.title">Integrated Live Classroom</strong>
+                <p data-i18n="feat.1.desc">No external links needed — join classes directly from the platform</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-check"><i class="fas fa-check" style="font-size:12px"></i></div>
+              <div>
+                <strong data-i18n="feat.2.title">Student Profile & Progress</strong>
+                <p data-i18n="feat.2.desc">Track your learning journey with a personal dashboard</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-check"><i class="fas fa-check" style="font-size:12px"></i></div>
+              <div>
+                <strong data-i18n="feat.3.title">Organized Course Materials</strong>
+                <p data-i18n="feat.3.desc">Materials organized by enrollment and level</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-check"><i class="fas fa-check" style="font-size:12px"></i></div>
+              <div>
+                <strong data-i18n="feat.4.title">Class Calendar & Scheduling</strong>
+                <p data-i18n="feat.4.desc">Book, reschedule, and manage your classes effortlessly</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-check"><i class="fas fa-check" style="font-size:12px"></i></div>
+              <div>
+                <strong data-i18n="feat.5.title">Exchange Matching System</strong>
+                <p data-i18n="feat.5.desc">Get paired with the perfect language exchange partner</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-check"><i class="fas fa-check" style="font-size:12px"></i></div>
+              <div>
+                <strong data-i18n="feat.6.title">Class Recordings</strong>
+                <p data-i18n="feat.6.desc">Review your classes anytime for reinforcement</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div data-aos="fade-left">
+          <div class="dashboard-mockup">
+            <div class="mockup-chrome">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-url">app.noruacademy.com/dashboard</div>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-sidebar">
+                <div class="mockup-avatar">🦌</div>
+                <div class="mockup-sidebar-name">Min-ji Kim</div>
+                <div class="mockup-sidebar-level">Level B1 · DELE Prep</div>
+                <div class="mockup-sidebar-nav">
+                  <span><i class="fas fa-home" style="margin-right:6px;font-size:10px"></i> Dashboard</span>
+                  <span><i class="fas fa-book" style="margin-right:6px;font-size:10px"></i> My Courses</span>
+                  <span><i class="fas fa-calendar" style="margin-right:6px;font-size:10px"></i> Schedule</span>
+                  <span><i class="fas fa-exchange-alt" style="margin-right:6px;font-size:10px"></i> Exchange</span>
+                </div>
+              </div>
+              <div class="mockup-main">
+                <div class="mockup-card">
+                  <div class="mockup-card-title" data-i18n="mock.next">Next Class</div>
+                  <div class="mockup-schedule">
+                    <div class="mockup-schedule-dot"></div>
+                    <span style="font-weight:600">DELE B1 — Expresión Oral</span>
+                  </div>
+                  <div style="font-size:var(--text-xs);opacity:0.6;margin-top:4px">Today, 15:00 KST · Prof. García</div>
+                  <div class="mockup-join-btn" data-i18n="mock.join">Join Class</div>
+                </div>
+                <div class="mockup-card">
+                  <div class="mockup-card-title" data-i18n="mock.progress">Progress</div>
+                  <div style="font-size:var(--text-sm);font-weight:500">B1 Certification Track — 68%</div>
+                  <div class="mockup-progress-bar">
+                    <div class="mockup-progress-fill"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROADMAP ===== -->
+  <section class="section-padding" id="roadmap">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="roadmap.title">Our Journey</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="roadmap.subtitle">Building step by
+        step toward a global language learning community.</p>
+      <div class="roadmap-timeline">
+        <div class="roadmap-phase" data-aos="fade-up" data-aos-delay="100">
+          <div class="roadmap-node">🟢</div>
+          <div class="roadmap-connector"></div>
+          <div class="roadmap-label" data-i18n="road.1.label">Phase 1 — Active</div>
+          <div class="roadmap-dates">2025–2026</div>
+          <p class="roadmap-desc" data-i18n="road.1.desc">Spanish for Korean speakers. Live online classes, DELE prep,
+            수능 preparation, Spanish for travelers. Platform beta launch.</p>
+        </div>
+        <div class="roadmap-phase" data-aos="fade-up" data-aos-delay="250">
+          <div class="roadmap-node">🔵</div>
+          <div class="roadmap-connector"></div>
+          <div class="roadmap-label" data-i18n="road.2.label">Phase 2 — Coming Soon</div>
+          <div class="roadmap-dates">2026–2027</div>
+          <p class="roadmap-desc" data-i18n="road.2.desc">Korean for Spanish speakers. Supervised bilingual exchange
+            program. Teacher certification program. Full platform release.</p>
+        </div>
+        <div class="roadmap-phase" data-aos="fade-up" data-aos-delay="400">
+          <div class="roadmap-node">🔮</div>
+          <div class="roadmap-connector"></div>
+          <div class="roadmap-label" data-i18n="road.3.label">Phase 3 — Future</div>
+          <div class="roadmap-dates">2027+</div>
+          <p class="roadmap-desc" data-i18n="road.3.desc">Expansion to additional language pairs. Mobile app. AI-powered
+            practice tools. Global community of Noru learners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOUNDER ===== -->
+  <section class="section-padding what-section" id="founder">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="founder.title">Meet the Founder</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="founder.subtitle">The person behind
+        the vision — bridging two worlds through personal experience.</p>
+      <div class="founder-grid">
+        <div data-aos="fade-right">
+          <div class="founder-photo">
+            <img src="photo.jpg" alt="Bruno Ramírez" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <h3 class="founder-name">Bruno Ramírez Ledesma</h3>
+          <p class="founder-bio" data-i18n="founder.bio">Bruno is a Computer Science Engineering student from the
+            University of Almería, Spain. Driven by a passion for technology and cross-cultural connection, he pursued
+            Korean studies independently before completing an exchange year at Kyungpook National University — taking
+            Computer Science courses entirely in Korean. He holds TOPIK Level 4 certification and spent six months as a
+            cybersecurity researcher in a KNU lab, experiencing Korean academic and professional culture firsthand. For
+            the past two years, he has been teaching Spanish to Korean students, experiencing daily the gap that Noru
+            Academy aims to fill. He is now heading to Yonsei University (연세대학교) as an exchange student, where he will
+            continue developing this project.</p>
+          <div class="founder-badges">
+            <span class="founder-badge">🎓 TOPIK 4</span>
+            <span class="founder-badge">🔬 KNU Researcher</span>
+            <span class="founder-badge">👨‍🏫 2yr Spanish Teacher</span>
+            <span class="founder-badge">💻 CS Engineer</span>
+            <span class="founder-badge">🌍 연세대학교 Exchange</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section-padding waitlist-section" id="contact" style="text-align: center;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="contact.title">Let's Talk</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="contact.subtitle">Have questions or want to start classes? Contact me directly through any of these channels.</p>
+      
+      <style>
+        .contact-card {
+          display: flex;
+          align-items: center;
+          gap: var(--space-md);
+          padding: var(--space-md) var(--space-lg);
+          background: rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: var(--radius-md);
+          color: #fff;
+          text-decoration: none;
+          transition: all 0.25s;
+          text-align: left;
+          backdrop-filter: blur(8px);
+        }
+        .contact-card:hover {
+          background: rgba(255,255,255,0.15);
+          border-color: rgba(255,255,255,0.4);
+          transform: translateY(-2px);
+        }
+        .contact-card-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          flex-shrink: 0;
+        }
+        .contact-card-info {
+          display: flex;
+          flex-direction: column;
+        }
+        .contact-card-label {
+          font-size: var(--text-xs);
+          opacity: 0.7;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-weight: 600;
+          margin-bottom: 2px;
+          font-family: 'Inter', sans-serif;
+        }
+        .contact-card-value {
+          font-size: var(--text-lg);
+          font-weight: 600;
+          font-family: 'Inter', sans-serif;
+        }
+      </style>
+
+      <div style="display:flex; flex-direction:column; gap:var(--space-md); max-width:400px; margin:0 auto;" data-aos="fade-up" data-aos-delay="200">
+        
+        <a href="https://wa.me/34655477112" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="color: #4CAF50;"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-card-info">
+            <span class="contact-card-label">WhatsApp</span>
+            <span class="contact-card-value">+34 655477112</span>
+          </div>
+        </a>
+
+        <div class="contact-card">
+          <div class="contact-card-icon" style="color: #FAE100;"><i class="fas fa-comment"></i></div>
+          <div class="contact-card-info">
+            <span class="contact-card-label">KakaoTalk</span>
+            <span class="contact-card-value">+82 01088091790</span>
+          </div>
+        </div>
+
+        <a href="mailto:brunoalboran@gmail.com" class="contact-card">
+          <div class="contact-card-icon" style="color: #EA4335;"><i class="fas fa-envelope"></i></div>
+          <div class="contact-card-info">
+            <span class="contact-card-label">Email</span>
+            <span class="contact-card-value">brunoalboran@gmail.com</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="mascot.png" alt="Noru mascot" style="width:36px;height:36px;object-fit:contain;">
+            <div>
+              <div class="footer-brand-name">Noru Academy</div>
+              <div class="footer-tagline" data-i18n="footer.tagline">Where Languages Meet Cultures</div>
+            </div>
+          </div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#programs" data-i18n="nav.programs">Programs</a></li>
+          <li><a href="#platform" data-i18n="nav.platform">Platform</a></li>
+          <li><a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a></li>
+          <li><a href="#founder" data-i18n="nav.founder">Founder</a></li>
+          <li><a href="#contact" data-i18n="nav.cta">Contact</a></li>
+        </ul>
+        <div class="footer-global" data-i18n="footer.global">Available worldwide<br>전 세계 어디서나<br>Disponible en todo el
+          mundo</div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Noru Academy · 노루 학원</span>
+        <div class="lang-toggle" id="footerLangToggle">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ko">한국어</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== THEME SWITCHER ===== -->
+  <div class="theme-switcher">
+    <button class="theme-pill" id="themePill" aria-label="Switch theme">
+      <span style="font-size:14px">🎨</span>
+      <span data-i18n="theme.label">Theme</span>
+    </button>
+    <div class="theme-popover" id="themePopover">
+      <button class="theme-option active" data-theme="academy">
+        <span class="theme-dot" style="background:#3B4FBF"></span>
+        <span>Academy</span>
+      </button>
+      <button class="theme-option" data-theme="forest">
+        <span class="theme-dot" style="background:#6B4226"></span>
+        <span>Forest Deer</span>
+      </button>
+      <button class="theme-option" data-theme="twilight">
+        <span class="theme-dot" style="background:#6C4FA0"></span>
+        <span>Seoul Twilight</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- AOS.js -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // ===== THEMES =====
+    const THEMES = {
+      academy: {
+        '--color-primary': '#3B4FBF',
+        '--color-accent': '#F2694A',
+        '--color-secondary': '#2ECC8F',
+        '--color-bg': '#F8F7F4',
+        '--color-text': '#1E1E2E',
+        '--color-surface': '#FFFFFF'
+      },
+      forest: {
+        '--color-primary': '#6B4226',
+        '--color-accent': '#C8A96E',
+        '--color-secondary': '#3A6B35',
+        '--color-bg': '#FAF6EF',
+        '--color-text': '#2C1A0E',
+        '--color-surface': '#FFF8F0'
+      },
+      twilight: {
+        '--color-primary': '#6C4FA0',
+        '--color-accent': '#E8725A',
+        '--color-secondary': '#3AADA8',
+        '--color-bg': '#F5F3FA',
+        '--color-text': '#1A1430',
+        '--color-surface': '#FFFFFF'
+      }
+    };
+
+    function setTheme(name) {
+      const vars = THEMES[name];
+      if (!vars) return;
+      Object.entries(vars).forEach(([k, v]) => document.documentElement.style.setProperty(k, v));
+      document.querySelectorAll('.theme-option').forEach(o => o.classList.toggle('active', o.dataset.theme === name));
+      localStorage.setItem('noru-theme', name);
+    }
+
+    // Theme switcher
+    const themePill = document.getElementById('themePill');
+    const themePopover = document.getElementById('themePopover');
+    themePill.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themePopover.classList.toggle('open');
+    });
+    document.addEventListener('click', () => themePopover.classList.remove('open'));
+    themePopover.addEventListener('click', (e) => e.stopPropagation());
+    document.querySelectorAll('.theme-option').forEach(btn => {
+      btn.addEventListener('click', () => { setTheme(btn.dataset.theme); themePopover.classList.remove('open'); });
+    });
+
+    // Restore theme
+    const savedTheme = localStorage.getItem('noru-theme');
+    if (savedTheme && THEMES[savedTheme]) setTheme(savedTheme);
+
+    // ===== i18n =====
+    const T = {
+      'nav.about': { en: 'About', es: 'Acerca de', ko: '소개' },
+      'nav.programs': { en: 'Programs', es: 'Programas', ko: '프로그램' },
+      'nav.platform': { en: 'Platform', es: 'Plataforma', ko: '플랫폼' },
+      'nav.roadmap': { en: 'Roadmap', es: 'Hoja de ruta', ko: '로드맵' },
+      'nav.founder': { en: 'Founder', es: 'Fundador', ko: '설립자' },
+      'nav.cta': { en: 'Contact', es: 'Contacto', ko: '문의하기' },
+      'hero.sub': {
+        en: 'A premium online academy bridging Spanish and Korean — quality-first, culture-driven, built for serious learners.',
+        es: 'Una academia online premium que conecta español y coreano — calidad ante todo, impulsada por la cultura, hecha para estudiantes serios.',
+        ko: '스페인어와 한국어를 잇는 프리미엄 온라인 아카데미 — 품질 우선, 문화 중심, 진지한 학습자를 위해 설계되었습니다.'
+      },
+      'hero.cta1': { en: 'Get in Touch', es: 'Ponerse en contacto', ko: '연락하기' },
+      'hero.cta2': { en: 'Explore Programs', es: 'Explorar programas', ko: '프로그램 살펴보기' },
+      'why.title': { en: 'Why Noru?', es: '¿Por qué Noru?', ko: '왜 노루인가?' },
+      'why.subtitle': {
+        en: 'The gap between Spanish and Korean learning is real — and no one is bridging it properly.',
+        es: 'La brecha entre el aprendizaje del español y el coreano es real — y nadie la está cerrando adecuadamente.',
+        ko: '스페인어와 한국어 학습 사이의 격차는 현실입니다 — 그리고 아무도 제대로 연결하지 못하고 있습니다.'
+      },
+      'why.es.title': { en: 'Spanish Learners', es: 'Estudiantes de español', ko: '스페인어 학습자' },
+      'why.es.p1': {
+        en: 'Generic platforms ignore the Spanish-Korean niche',
+        es: 'Las plataformas genéricas ignoran el nicho español-coreano',
+        ko: '일반 플랫폼은 스페인어-한국어 니치를 무시합니다'
+      },
+      'why.es.p2': {
+        en: 'No cultural context, just grammar',
+        es: 'Sin contexto cultural, solo gramática',
+        ko: '문화적 맥락 없이 문법만'
+      },
+      'why.es.p3': {
+        en: 'Scattered resources, no structured path',
+        es: 'Recursos dispersos, sin una ruta estructurada',
+        ko: '분산된 자료, 체계적인 경로 없음'
+      },
+      'why.ko.title': { en: 'Korean Learners', es: 'Estudiantes coreanos', ko: '한국어 학습자' },
+      'why.ko.p1': {
+        en: '과외 culture demands quality and personalization',
+        es: 'La cultura 과외 exige calidad y personalización',
+        ko: '과외 문화는 품질과 개인화를 요구합니다'
+      },
+      'why.ko.p2': {
+        en: 'No platform specialized in Korean↔Spanish',
+        es: 'Ninguna plataforma especializada en coreano↔español',
+        ko: '한국어↔스페인어 전문 플랫폼 없음'
+      },
+      'why.ko.p3': {
+        en: 'Online classes feel disconnected and informal',
+        es: 'Las clases online se sienten desconectadas e informales',
+        ko: '온라인 수업이 단절되고 비공식적으로 느껴짐'
+      },
+      'what.title': { en: 'What is Noru Academy?', es: '¿Qué es Noru Academy?', ko: '노루 학원이란?' },
+      'what.intro': {
+        en: 'A premium private virtual academy — not a public platform like Duolingo. Modeled after the Korean 과외 (tutoring) culture, scaled online with verified native teachers, professional structure, and real cultural immersion.',
+        es: 'Una academia virtual privada premium — no una plataforma pública como Duolingo. Inspirada en la cultura coreana de 과외 (tutoría), escalada online con profesores nativos verificados, estructura profesional e inmersión cultural real.',
+        ko: '프리미엄 사설 가상 학원 — 듀오링고 같은 공개 플랫폼이 아닙니다. 한국의 과외 문화를 모델로, 검증된 원어민 강사, 전문적 구조, 실질적 문화 몰입을 온라인으로 확장했습니다.'
+      },
+      'what.p1.title': { en: 'Quality', es: 'Calidad', ko: '품질' },
+      'what.p1.desc': {
+        en: 'Native verified teachers and a rigorous, structured curriculum designed for measurable progress.',
+        es: 'Profesores nativos verificados y un currículo riguroso y estructurado diseñado para un progreso medible.',
+        ko: '검증된 원어민 강사와 측정 가능한 성장을 위해 설계된 엄격하고 체계적인 커리큘럼.'
+      },
+      'what.p2.title': { en: 'Culture', es: 'Cultura', ko: '문화' },
+      'what.p2.desc': {
+        en: 'Language learning rooted in real cultural immersion — not just textbooks, but lived experience.',
+        es: 'Aprendizaje de idiomas basado en inmersión cultural real — no solo libros de texto, sino experiencia vivida.',
+        ko: '실제 문화 몰입에 뿌리를 둔 언어 학습 — 교과서만이 아닌, 살아있는 경험.'
+      },
+      'what.p3.title': { en: 'Community', es: 'Comunidad', ko: '커뮤니티' },
+      'what.p3.desc': {
+        en: 'Live exchange between Spanish and Korean native speakers, building bridges that go beyond the classroom.',
+        es: 'Intercambio en vivo entre hablantes nativos de español y coreano, construyendo puentes que van más allá del aula.',
+        ko: '스페인어와 한국어 원어민 간의 라이브 교류, 교실을 넘어서는 다리를 구축합니다.'
+      },
+      'programs.title': { en: 'Our Programs', es: 'Nuestros programas', ko: '프로그램' },
+      'programs.subtitle': {
+        en: 'Structured paths for every learning goal, from absolute beginner to exam mastery.',
+        es: 'Rutas estructuradas para cada objetivo de aprendizaje, desde principiante absoluto hasta dominio de exámenes.',
+        ko: '절대 초보자부터 시험 마스터까지, 모든 학습 목표를 위한 체계적인 경로.'
+      },
+      'prog.dele.title': { en: 'DELE Preparation', es: 'Preparación DELE', ko: 'DELE 시험 준비' },
+      'prog.dele.desc': {
+        en: 'Official exam prep for all levels A1–C2. Reading, writing, listening, speaking. Individual or group sessions.',
+        es: 'Preparación oficial para todos los niveles A1–C2. Lectura, escritura, comprensión auditiva, expresión oral. Sesiones individuales o grupales.',
+        ko: 'A1–C2 전 레벨 공식 시험 준비. 읽기, 쓰기, 듣기, 말하기. 개인 또는 그룹 수업.'
+      },
+      'prog.zero.title': { en: 'Spanish from Zero', es: 'Español desde cero', ko: '스페인어 제로부터' },
+      'prog.zero.desc': {
+        en: 'Structured beginner course for Korean native speakers. Start from scratch, reach conversational level.',
+        es: 'Curso estructurado para principiantes coreanos. Empieza desde cero, alcanza nivel conversacional.',
+        ko: '한국어 원어민을 위한 체계적인 초급 과정. 처음부터 시작하여 회화 수준에 도달하세요.'
+      },
+      'prog.zero.badge': { en: 'Beginner', es: 'Principiante', ko: '초급' },
+      'prog.travel.title': { en: 'Spanish for Travelers', es: 'Español para viajeros', ko: '여행 스페인어' },
+      'prog.travel.desc': {
+        en: 'Practical mini-course for students going to Spain or Latin America on exchange or short stays.',
+        es: 'Mini-curso práctico para estudiantes que van a España o Latinoamérica de intercambio o estancias cortas.',
+        ko: '교환학생이나 단기 체류로 스페인 또는 중남미에 가는 학생을 위한 실용 미니 코스.'
+      },
+      'prog.travel.badge': { en: 'Short Course', es: 'Curso corto', ko: '단기 과정' },
+      'prog.suneung.title': { en: '수능 Spanish Prep', es: 'Preparación 수능 de español', ko: '수능 스페인어 준비' },
+      'prog.suneung.desc': {
+        en: 'Specialized preparation for Korean high school students taking the CSAT (수능) Spanish exam.',
+        es: 'Preparación especializada para estudiantes de secundaria coreanos que presentan el examen de español del CSAT (수능).',
+        ko: '수능 스페인어 시험을 치르는 한국 고등학생을 위한 전문 준비 과정.'
+      },
+      'prog.exchange.title': { en: 'Supervised Language Exchange', es: 'Intercambio lingüístico supervisado', ko: '감독 언어 교환' },
+      'prog.exchange.desc': {
+        en: 'Pairs Spanish and Korean native speakers for guided conversation practice, supervised by a teacher.',
+        es: 'Empareja hablantes nativos de español y coreano para práctica de conversación guiada, supervisada por un profesor.',
+        ko: '스페인어와 한국어 원어민을 짝지어 교사가 감독하는 가이드 대화 연습.'
+      },
+      'prog.korean.title': { en: 'Korean for Spanish Speakers', es: 'Coreano para hispanohablantes', ko: '스페인어 화자를 위한 한국어' },
+      'prog.korean.desc': {
+        en: 'Coming soon. The reverse path — from Spanish to Korean, taught by native Korean teachers.',
+        es: 'Próximamente. El camino inverso — de español a coreano, enseñado por profesores nativos coreanos.',
+        ko: '출시 예정. 역방향 — 스페인어에서 한국어로, 한국어 원어민 교사가 가르칩니다.'
+      },
+      'prog.korean.badge': { en: 'Coming Soon', es: 'Próximamente', ko: '출시 예정' },
+      'audience.title': { en: 'Who is Noru Academy for?', es: '¿Para quién es Noru Academy?', ko: '노루 학원은 누구를 위한 곳인가요?' },
+      'audience.subtitle': {
+        en: "Whether you're in Seoul, Madrid, or anywhere in between — if you're serious about learning, Noru is for you.",
+        es: 'Ya sea que estés en Seúl, Madrid o en cualquier lugar intermedio — si te tomas en serio el aprendizaje, Noru es para ti.',
+        ko: '서울, 마드리드, 또는 그 사이 어디에 있든 — 진지하게 배우고 싶다면 노루가 바로 당신을 위한 곳입니다.'
+      },
+      'aud.1.title': { en: 'Korean Students in Korea', es: 'Estudiantes coreanos en Corea', ko: '한국에 있는 한국 학생' },
+      'aud.1.desc': {
+        en: 'Seeking quality 과외-style Spanish instruction from native speakers',
+        es: 'Buscando instrucción de español de calidad estilo 과외 con profesores nativos',
+        ko: '원어민 강사의 과외 스타일 고품질 스페인어 교육을 찾는 학생'
+      },
+      'aud.2.title': { en: 'Koreans Living Abroad', es: 'Coreanos viviendo en el extranjero', ko: '해외에 사는 한국인' },
+      'aud.2.desc': {
+        en: 'Living in Spain, Mexico or Latin America and wanting to improve their Spanish professionally',
+        es: 'Viviendo en España, México o Latinoamérica y queriendo mejorar su español profesionalmente',
+        ko: '스페인, 멕시코 또는 중남미에 거주하며 전문적으로 스페인어를 향상시키고 싶은 분'
+      },
+      'aud.3.title': { en: 'Korean High Schoolers', es: 'Estudiantes de secundaria coreanos', ko: '한국 고등학생' },
+      'aud.3.desc': {
+        en: 'Preparing for 수능 Spanish with expert guidance',
+        es: 'Preparándose para el español del 수능 con guía experta',
+        ko: '전문가의 지도 아래 수능 스페인어를 준비하는 학생'
+      },
+      'aud.4.title': { en: 'Spanish Speakers Curious About Korean', es: 'Hispanohablantes curiosos por el coreano', ko: '한국어에 관심 있는 스페인어 화자' },
+      'aud.4.desc': {
+        en: 'Wanting to explore Korean language and culture (Phase 2)',
+        es: 'Queriendo explorar el idioma y la cultura coreana (Fase 2)',
+        ko: '한국어와 한국 문화를 탐구하고 싶은 분 (2단계)'
+      },
+      'platform.title': { en: 'A Professional Virtual Classroom', es: 'Un aula virtual profesional', ko: '전문 가상 교실' },
+      'platform.subtitle': {
+        en: 'Everything in one place — no more scattered Google Meet links and WhatsApp messages.',
+        es: 'Todo en un solo lugar — sin más enlaces de Google Meet dispersos ni mensajes de WhatsApp.',
+        ko: '모든 것이 한 곳에 — 더 이상 흩어진 Google Meet 링크와 WhatsApp 메시지가 필요 없습니다.'
+      },
+      'feat.1.title': { en: 'Integrated Live Classroom', es: 'Aula en vivo integrada', ko: '통합 라이브 교실' },
+      'feat.1.desc': {
+        en: 'No external links needed — join classes directly from the platform',
+        es: 'Sin enlaces externos — únete a las clases directamente desde la plataforma',
+        ko: '외부 링크 불필요 — 플랫폼에서 직접 수업 참여'
+      },
+      'feat.2.title': { en: 'Student Profile & Progress', es: 'Perfil y progreso del estudiante', ko: '학생 프로필 및 진도' },
+      'feat.2.desc': {
+        en: 'Track your learning journey with a personal dashboard',
+        es: 'Sigue tu progreso de aprendizaje con un panel personal',
+        ko: '개인 대시보드로 학습 여정을 추적하세요'
+      },
+      'feat.3.title': { en: 'Organized Course Materials', es: 'Materiales del curso organizados', ko: '정리된 교재' },
+      'feat.3.desc': {
+        en: 'Materials organized by enrollment and level',
+        es: 'Materiales organizados por matrícula y nivel',
+        ko: '등록 및 레벨별로 정리된 교재'
+      },
+      'feat.4.title': { en: 'Class Calendar & Scheduling', es: 'Calendario y programación de clases', ko: '수업 캘린더 및 일정 관리' },
+      'feat.4.desc': {
+        en: 'Book, reschedule, and manage your classes effortlessly',
+        es: 'Reserva, reprograma y gestiona tus clases sin esfuerzo',
+        ko: '수업을 손쉽게 예약, 변경, 관리하세요'
+      },
+      'feat.5.title': { en: 'Exchange Matching System', es: 'Sistema de emparejamiento de intercambio', ko: '교환 매칭 시스템' },
+      'feat.5.desc': {
+        en: 'Get paired with the perfect language exchange partner',
+        es: 'Encuentra el compañero de intercambio lingüístico perfecto',
+        ko: '완벽한 언어 교환 파트너와 매칭되세요'
+      },
+      'feat.6.title': { en: 'Class Recordings', es: 'Grabaciones de clases', ko: '수업 녹화' },
+      'feat.6.desc': {
+        en: 'Review your classes anytime for reinforcement',
+        es: 'Revisa tus clases en cualquier momento para reforzar',
+        ko: '언제든 수업을 다시 보며 복습하세요'
+      },
+      'mock.next': { en: 'Next Class', es: 'Próxima clase', ko: '다음 수업' },
+      'mock.join': { en: 'Join Class', es: 'Unirse a la clase', ko: '수업 참여' },
+      'mock.progress': { en: 'Progress', es: 'Progreso', ko: '진도' },
+      'roadmap.title': { en: 'Our Journey', es: 'Nuestro camino', ko: '우리의 여정' },
+      'roadmap.subtitle': {
+        en: 'Building step by step toward a global language learning community.',
+        es: 'Construyendo paso a paso una comunidad global de aprendizaje de idiomas.',
+        ko: '글로벌 언어 학습 커뮤니티를 향해 한 걸음씩 나아갑니다.'
+      },
+      'road.1.label': { en: 'Phase 1 — Active', es: 'Fase 1 — Activa', ko: '1단계 — 진행 중' },
+      'road.1.desc': {
+        en: 'Spanish for Korean speakers. Live online classes, DELE prep, 수능 preparation, Spanish for travelers. Platform beta launch.',
+        es: 'Español para coreanos. Clases online en vivo, preparación DELE, preparación 수능, español para viajeros. Lanzamiento beta de la plataforma.',
+        ko: '한국어 화자를 위한 스페인어. 라이브 온라인 수업, DELE 준비, 수능 준비, 여행 스페인어. 플랫폼 베타 출시.'
+      },
+      'road.2.label': { en: 'Phase 2 — Coming Soon', es: 'Fase 2 — Próximamente', ko: '2단계 — 출시 예정' },
+      'road.2.desc': {
+        en: 'Korean for Spanish speakers. Supervised bilingual exchange program. Teacher certification program. Full platform release.',
+        es: 'Coreano para hispanohablantes. Programa de intercambio bilingüe supervisado. Programa de certificación docente. Lanzamiento completo de la plataforma.',
+        ko: '스페인어 화자를 위한 한국어. 감독 이중언어 교환 프로그램. 교사 인증 프로그램. 플랫폼 정식 출시.'
+      },
+      'road.3.label': { en: 'Phase 3 — Future', es: 'Fase 3 — Futuro', ko: '3단계 — 미래' },
+      'road.3.desc': {
+        en: 'Expansion to additional language pairs. Mobile app. AI-powered practice tools. Global community of Noru learners.',
+        es: 'Expansión a pares de idiomas adicionales. App móvil. Herramientas de práctica con IA. Comunidad global de estudiantes Noru.',
+        ko: '추가 언어 쌍으로 확장. 모바일 앱. AI 기반 연습 도구. 노루 학습자 글로벌 커뮤니티.'
+      },
+      'founder.title': { en: 'Meet the Founder', es: 'Conoce al fundador', ko: '설립자 소개' },
+      'founder.subtitle': {
+        en: 'The person behind the vision — bridging two worlds through personal experience.',
+        es: 'La persona detrás de la visión — uniendo dos mundos a través de la experiencia personal.',
+        ko: '비전의 주인공 — 개인적 경험을 통해 두 세계를 잇습니다.'
+      },
+      'founder.photo': { en: 'Photo coming soon', es: 'Foto próximamente', ko: '사진 준비 중' },
+      'founder.bio': {
+        en: 'Bruno is a Computer Science Engineering student from the University of Almería, Spain. Driven by a passion for technology and cross-cultural connection, he pursued Korean studies independently before completing an exchange year at Kyungpook National University — taking Computer Science courses entirely in Korean. He holds TOPIK Level 4 certification and spent six months as a cybersecurity researcher in a KNU lab, experiencing Korean academic and professional culture firsthand. For the past two years, he has been teaching Spanish to Korean students, experiencing daily the gap that Noru Academy aims to fill. He is now heading to Yonsei University (연세대학교) as an exchange student, where he will continue developing this project.',
+        es: 'Bruno es un estudiante de Ingeniería Informática de la Universidad de Almería, España. Impulsado por la pasión por la tecnología y la conexión intercultural, estudió coreano de forma autodidacta antes de completar un año de intercambio en la Universidad Nacional de Kyungpook — cursando materias de Informática completamente en coreano. Posee la certificación TOPIK Nivel 4 y pasó seis meses como investigador de ciberseguridad en un laboratorio de KNU, viviendo la cultura académica y profesional coreana de primera mano. Durante los últimos dos años ha enseñado español a estudiantes coreanos, experimentando a diario la brecha que Noru Academy busca llenar. Ahora se dirige a la Universidad de Yonsei (연세대학교) como estudiante de intercambio, donde continuará desarrollando este proyecto.',
+        ko: 'Bruno는 스페인 알메리아 대학교 컴퓨터공학과 학생입니다. 기술과 문화 간 연결에 대한 열정으로 독학으로 한국어를 공부한 후 경북대학교에서 교환학생으로 1년을 보내며 컴퓨터공학 수업을 전부 한국어로 수강했습니다. TOPIK 4급 자격증을 보유하고 있으며, KNU 연구실에서 6개월간 사이버보안 연구원으로 활동하며 한국의 학문적·전문적 문화를 직접 경험했습니다. 지난 2년간 한국 학생들에게 스페인어를 가르치며 노루 학원이 채우고자 하는 격차를 매일 체감하고 있습니다. 현재 연세대학교 교환학생으로 향하고 있으며, 그곳에서 이 프로젝트를 계속 발전시킬 예정입니다.'
+      },
+      'waitlist.title': {
+        en: 'Be the first to know when Noru Academy launches',
+        es: 'Sé el primero en saber cuándo lanza Noru Academy',
+        ko: '노루 학원 출시 소식을 가장 먼저 받아보세요'
+      },
+      'waitlist.subtitle': {
+        en: 'Join hundreds of students and teachers ready to bridge Spanish and Korean through quality education.',
+        es: 'Únete a cientos de estudiantes y profesores listos para unir español y coreano a través de una educación de calidad.',
+        ko: '양질의 교육으로 스페인어와 한국어를 잇기 위해 준비하는 수백 명의 학생과 교사에 합류하세요.'
+      },
+      'waitlist.name': { en: 'Your name', es: 'Tu nombre', ko: '이름' },
+      'waitlist.email': { en: 'Your email', es: 'Tu correo electrónico', ko: '이메일' },
+      'waitlist.select': { en: 'I want to learn...', es: 'Quiero aprender...', ko: '배우고 싶은 언어...' },
+      'waitlist.spanish': { en: 'Spanish', es: 'Español', ko: '스페인어' },
+      'waitlist.korean': { en: 'Korean', es: 'Coreano', ko: '한국어' },
+      'waitlist.both': { en: 'Both', es: 'Ambos', ko: '둘 다' },
+      'waitlist.submit': { en: 'Join the Waitlist', es: 'Únete a la lista de espera', ko: '대기자 명단 등록' },
+      'waitlist.note': {
+        en: 'No spam. Just a launch notification when we\'re ready.',
+        es: 'Sin spam. Solo una notificación de lanzamiento cuando estemos listos.',
+        ko: '스팸 없음. 준비되면 출시 알림만 보내드립니다.'
+      },
+      'contact.title': {
+        en: "Let's Talk",
+        es: "Hablemos",
+        ko: "문의하기"
+      },
+      'contact.subtitle': {
+        en: "Have questions or want to start classes? Contact me directly through any of these channels.",
+        es: "¿Tienes preguntas o quieres empezar las clases? Contáctame directamente a través de cualquiera de estos canales.",
+        ko: "질문이 있거나 수업을 시작하고 싶으신가요? 아래 채널을 통해 직접 연락해 주세요."
+      },
+      'footer.tagline': {
+        en: 'Where Languages Meet Cultures',
+        es: 'Donde los idiomas se encuentran con la cultura',
+        ko: '언어가 문화를 만나는 곳'
+      },
+      'footer.global': {
+        en: 'Available worldwide<br>전 세계 어디서나<br>Disponible en todo el mundo',
+        es: 'Disponible en todo el mundo<br>전 세계 어디서나<br>Available worldwide',
+        ko: '전 세계 어디서나<br>Available worldwide<br>Disponible en todo el mundo'
+      },
+      'theme.label': { en: 'Theme', es: 'Tema', ko: '테마' }
+    };
+
+    let currentLang = localStorage.getItem('noru-lang') || 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('noru-lang', lang);
+
+      // Update text
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (T[key] && T[key][lang]) el.innerHTML = T[key][lang];
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (T[key] && T[key][lang]) el.placeholder = T[key][lang];
+      });
+
+      // Update lang buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      document.documentElement.lang = lang;
+    }
+
+    // Lang toggle listeners
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Init language
+    setLang(currentLang);
+
+    // ===== NAVBAR SCROLL =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ===== MOBILE MENU =====
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // ===== HERO TAGLINE CYCLE =====
+    const taglines = ['tagline-en', 'tagline-es', 'tagline-ko'];
+    let taglineIndex = 0;
+    setInterval(() => {
+      document.getElementById(taglines[taglineIndex]).classList.remove('active');
+      taglineIndex = (taglineIndex + 1) % taglines.length;
+      document.getElementById(taglines[taglineIndex]).classList.add('active');
+    }, 3000);
+
+    // ===== AOS INIT =====
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 80
+    });
+  </script>
+</body>
+
+</html>
